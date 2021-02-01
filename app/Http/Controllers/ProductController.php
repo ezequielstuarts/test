@@ -39,8 +39,8 @@ class ProductController extends Controller
     {        
         $product = new Product();
         $product->name = $request->name;
+        $product->price = $request->price;
         $product->save();
-        // return view('home');
         return redirect()->route('home')->with('mensaje', 'Agregaste a a la base de datos. ');
     }
 
@@ -78,6 +78,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->name = $request->name;
+        $product->price = $request->price;
         $product->save();
         return redirect()->route('home')->with('mensaje', 'El producto fue editado. ');
 

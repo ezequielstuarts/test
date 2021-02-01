@@ -14,6 +14,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre de producto</th>
+                <th scope="col">Precio</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -22,6 +23,7 @@
                   <tr>
                   <th scope="row">{{$product->id}}</th>
                       <td> {{$product->name}} </td>
+                      <td> {{$product->price}} </td>
                       <td><a href="/product/edit/{{$product->id}}" class="btn btn-sm btn-info"> Editar</a></td>
                       <td>
                           <form action="/product/delete/{{$product->id}} " method="post">

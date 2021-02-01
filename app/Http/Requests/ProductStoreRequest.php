@@ -25,14 +25,17 @@ class ProductStoreRequest extends FormRequest
     {
         return [
             'name.required' => 'El nombre es requerido',
-            'name.unique' => 'Este producto ya existe'
+            'name.unique' => 'Este producto ya existe',
+            'price.required' => 'El precio es requerido',
+            'price.numeric' => 'El precio debe ser numerico',
         ];
     }
 
     public function rules()
     {
         return [
-            'name' => 'required|unique:products,name'
+            'name' => 'required|unique:products,name',
+            'price' => 'required|numeric|min:0'
         ];
     }
 }

@@ -24,14 +24,16 @@ class ProductUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.unique' => 'Este producto ya existe'
+            'name.unique' => 'Este producto ya existe',
+            'price.numeric' => 'El precio debe ser numerico'
         ];
     }
 
     public function rules()
     {
         return [
-            'name' => 'unique:products,name'
+            'name' => 'unique:products,name,'. $this->id,
+            'price' => 'required|numeric|min:0'
         ];
     }
 }
